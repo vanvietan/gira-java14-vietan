@@ -17,12 +17,12 @@ public class OpenApiConfiguration {
 	@Bean
 	public OpenAPI getOpenApi() {
 		return new OpenAPI()
-				.info(new Info().title("SpringShop API")
-	              .description("Spring shop sample application")
+				.info(new Info().title("Gira Application")
+	              .description("Gira Application for Education Purpose")
 	              .version("v0.0.1")
-	              .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+	              .license(new License().name("NO LICENSE").url("http://vietan.dev")))
 	              .externalDocs(new ExternalDocumentation()
-	              .description("SpringShop Wiki Documentation")
-	              .url("https://springshop.wiki.github.org/docs"));
+	              .description("Spring Documentation")
+	              .url("https://docs.spring.io/spring-framework/docs/current/reference/html/"));
 	}
 }
