@@ -23,17 +23,17 @@ spring:
     user: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
-  springdoc:
-    api-docs:
-      path: /openapi/v3/api-docs
-    swagger-ui:
-      url: /swagger-ui.html
-    packages-to-scan:
-      -cybersoft.jababackend.girajava14vietan
-      
-  api:
-    role:
-      name: role controller
-      description: role endpoints
+springdoc:
+  api-docs:
+    path: /openapi/v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  packages-to-scan:
+  - cybersoft.javabackend.girajava14vietan
+  
+api:
+  role:
+    name: role controller
+    description: role endpoints
   
       
