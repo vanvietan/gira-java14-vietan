@@ -2,6 +2,7 @@ package cybersoft.javabackend.girajava14vietan.role.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -35,6 +36,18 @@ public class RoleServiceImpl implements RoleService{
 		Role createdRole = repository.save(role);
 		
 		return RoleConverter.toRoleDTO(createdRole);
+	}
+
+	@Override
+	public Optional<Role> findByName(String roleName) {
+		
+		return repository.findByName(roleName);
+	}
+
+	@Override
+	public Optional<Role> findByCode(String roleCode) {
+		
+		return repository.findByCode(roleCode);
 	}
 
 }
