@@ -11,8 +11,6 @@ import io.swagger.v3.oas.models.info.License;
 
 @Configuration
 public class OpenApiConfiguration {
-	@Value("${api.info.title")
-	String title;
 	
 	@Bean
 	public OpenAPI getOpenApi() {
