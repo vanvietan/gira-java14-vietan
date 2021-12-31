@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cybersoft.javabackend.girajava14vietan.common.ResponseHandler;
 import cybersoft.javabackend.girajava14vietan.role.dto.RoleDTO;
+import cybersoft.javabackend.girajava14vietan.role.dto.UpdateRoleDTO;
 import cybersoft.javabackend.girajava14vietan.role.service.RoleService;
 
 @RestController
@@ -37,12 +38,34 @@ public class RoleControllerImpl implements RoleController{
 	@Override
 	public ResponseEntity<Object> createRole(@Valid RoleDTO dto, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
-			return ResponseHandler.getResponse(bindingResult.getAllErrors() , HttpStatus.BAD_REQUEST);
+			return ResponseHandler.getErrorResponse(bindingResult.getAllErrors() , HttpStatus.BAD_REQUEST);
 		}
 		
 		RoleDTO createdRole = service.create(dto);
-		
+
 		return ResponseHandler.getResponse(createdRole, HttpStatus.OK);
 	}
+
+	@Override
+	public ResponseEntity<Object> updateRole(long id, @Valid UpdateRoleDTO dto, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return ResponseHandler.getErrorResponse(bindingResult, HttpStatus.BAD_REQUEST);
+		}
+		
+		RoleDTO updatedRole = service.updateRole(id,dto);
+		
+		
+		return ResponseHandler.getResponse(updatedRole, HttpStatus.OK);
+		
+	}
+
+	@Override
+	public ResponseEntity<Object> deleteRole(long id) {
+		
+		service.deleteRole(id);
+		
+		return ResponseHandler.getResponse("Deleted Role Sucessfully", HttpStatus.OK);
+	}
+
 
 }
