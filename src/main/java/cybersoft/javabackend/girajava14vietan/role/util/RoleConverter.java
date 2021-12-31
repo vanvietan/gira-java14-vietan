@@ -25,7 +25,8 @@ public class RoleConverter {
 	}
 	public static Role toRole(RoleDTO dto) {
 		
-		return Role.builder()		
+		return Role.builder()
+				.id(dto.getId())
 				.name(dto.getName())
 				.code(dto.getCode())
 				.description(dto.getDescription())
