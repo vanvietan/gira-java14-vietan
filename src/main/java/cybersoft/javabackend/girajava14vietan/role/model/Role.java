@@ -9,8 +9,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import cybersoft.javabackend.girajava14vietan.common.model.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

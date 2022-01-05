@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import cybersoft.javabackend.girajava14vietan.common.model.BaseEntity;
+import cybersoft.javabackend.girajava14vietan.user.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,8 +39,16 @@ public class GroupRole extends BaseEntity{
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST , CascadeType.MERGE})
 	@JoinTable(name = "gira_role_group_role",
-			joinColumns = @JoinColumn(name = "group_role_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id")
+			joinColumns 		= @JoinColumn(name = "group_role_id"),
+			inverseJoinColumns 	= @JoinColumn(name = "role_id")
 	)
 	private Set<Role> roles = new LinkedHashSet<Role>();
+	
+	@ManyToMany(cascade = {CascadeType.PERSIST , CascadeType.MERGE})
+	@JoinTable(name = "gira_group_role_user",
+			joinColumns 		= @JoinColumn(name = "group_role_id"),
+			inverseJoinColumns 	= @JoinColumn(name = "user_id")
+	)
+	private Set<User> users = new LinkedHashSet<User>();
+	
 }
