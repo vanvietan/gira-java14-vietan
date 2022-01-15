@@ -2,6 +2,8 @@ package cybersoft.javabackend.girajava14vietan.security.jwt;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,6 +28,9 @@ public class JwtUtils {
 	private String secret;
 	
 	public String generateJwtToken(Authentication authentication) {
+		if(authentication == null) {
+			return null;
+		}
 		UserDetails userInfo = (UserDetails) authentication.getPrincipal();
 		Date now = new Date();
 		
@@ -36,16 +41,7 @@ public class JwtUtils {
 				.signWith(SignatureAlgorithm.HS512 , secret)
 				.compact();
 	}
-	public String generateFakeJwtToken(String username) {
-		Date now = new Date();
-		
-		return Jwts.builder()
-				.setSubject(username)
-				.setIssuedAt(now)
-				.setExpiration(new Date(now.getTime() + Long.parseLong(jwtExpiration)))
-				.signWith(SignatureAlgorithm.HS512 , secret)
-				.compact();
-	}
+	
 	public boolean validateJwtToken(String token) {
 		try {
 			Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
@@ -63,5 +59,18 @@ public class JwtUtils {
 		}
 		return false;
 	}
-	
+	public String getJwtTokenFromRequest(HttpServletRequest request) {
+		String bearer = request.getHeader("Authorization");
+		if(bearer == null) {
+			return null;
+		}
+		
+		return bearer.substring("Bearer ".length()).trim();
+	}
+	public String getUserNameFromToken(String token) {
+		return Jwts.parser().setSigningKey(secret)
+			.parseClaimsJws(token)
+			.getBody()
+			.getSubject();
+	}
 }
