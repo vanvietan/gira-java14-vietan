@@ -14,11 +14,11 @@ public class AuthControllerImpl implements AuthController{
 	@Autowired
 	private JwtUtils jwtUtils;
 	
-	@Override
-	public ResponseEntity<Object> createTemporaryToken(String name) {
-		String token = jwtUtils.generateFakeJwtToken(name);
-		return ResponseHandler.getResponse(token, HttpStatus.OK);
-	}
+//	@Override
+//	public ResponseEntity<Object> createTemporaryToken(String name) {
+//		String token = jwtUtils.generateFakeJwtToken(name);
+//		return ResponseHandler.getResponse(token, HttpStatus.OK);
+//	}
 
 	@Override
 	public ResponseEntity<Object> verifyFakeToken(String token) {

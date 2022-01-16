@@ -12,15 +12,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 public interface AuthController {
 	
-	@Operation(method = "post" , description = "generate fake token")
-	@ApiResponses({
-			@ApiResponse(responseCode = "200" , description = "get token successfully"),
-			@ApiResponse(responseCode = "403" , description = "do not have the correct authorization")
-	})
-	@PostMapping(value = "/api/fake-token" , produces = "application/json")
-	public ResponseEntity<Object> createTemporaryToken(
-			@RequestParam(value="username" , defaultValue = "andeptrai") String name
-			);
+//	@Operation(method = "post" , description = "generate fake token")
+//	@ApiResponses({
+//			@ApiResponse(responseCode = "200" , description = "get token successfully"),
+//			@ApiResponse(responseCode = "403" , description = "do not have the correct authorization")
+//	})
+//	@PostMapping(value = "/api/fake-token" , produces = "application/json")
+//	public ResponseEntity<Object> createTemporaryToken(
+//			@RequestParam(value="username" , defaultValue = "andeptrai") String name
+//			);
 	
 	@Operation(method = "get" , description = "verify fake token")
 	@ApiResponses({
