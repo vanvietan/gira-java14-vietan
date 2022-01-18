@@ -4,6 +4,7 @@ import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cybersoft.javabackend.girajava14vietan.user.dto.CreateUserDTO;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	private PasswordEncoder encoder;
 
 	@Override
 	public User getUserById(long id) {
@@ -33,7 +37,11 @@ public class UserServiceImpl implements UserService{
 		
 		User user = UserMapper.INSTANCE.createUserDtoToUserEntity(dto);
 		
+		user.setPassword(encoder.encode(dto.getPassword()));
+		
 		User createdUser = repository.save(user);
+		
+		createdUser.setPassword(null);
 		
 		return UserMapper.INSTANCE.userEntityToCreateUserDTO(createdUser);
 	}

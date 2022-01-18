@@ -1,0 +1,10 @@
+package cybersoft.javabackend.girajava14vietan.common.exception;
+
+public class IncorrectLoginException extends GiraRuntimeException{
+
+	public IncorrectLoginException(String message) {
+		super(message);
+		
+	}
+
+}

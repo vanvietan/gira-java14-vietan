@@ -19,7 +19,6 @@
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
  		<lombok.version>1.18.14</lombok.version>
  		<org.projectlombok.version>1.18.14</org.projectlombok.version>
- 		
 	</properties>
 	<dependencies>
 		<dependency>
