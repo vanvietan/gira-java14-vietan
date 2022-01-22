@@ -23,6 +23,7 @@ spring:
     user: postgres
     password: admin
     driver-class-name: org.postgresql.Driver
+    
 springdoc:
   api-docs:
     path: /openapi/v3/api-docs
@@ -30,6 +31,7 @@ springdoc:
     path: /swagger-ui.html
   packages-to-scan:
   - cybersoft.javabackend.girajava14vietan
+  
 gira:
   security:
     jwt:
