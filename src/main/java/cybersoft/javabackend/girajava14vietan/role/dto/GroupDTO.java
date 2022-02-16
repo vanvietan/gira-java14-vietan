@@ -1,6 +1,7 @@
 package cybersoft.javabackend.girajava14vietan.role.dto;
 
 import javax.validation.constraints.NotBlank;
+import java.util.UUID;
 
 import cybersoft.javabackend.girajava14vietan.role.validation.annotation.UniqueRoleCode;
 import cybersoft.javabackend.girajava14vietan.role.validation.annotation.UniqueRoleName;
@@ -16,6 +17,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class GroupDTO {
+	
+	private UUID id;
 	
 	@NotBlank(message="{role.name.not-blank}")
 	@UniqueRoleName(message="This group name can not be used. Choose the another role name")

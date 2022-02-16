@@ -3,6 +3,7 @@ package cybersoft.javabackend.girajava14vietan.role.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -55,7 +56,7 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Override
-	public RoleDTO updateRole(long id, UpdateRoleDTO dto) {
+	public RoleDTO updateRole(UUID id, UpdateRoleDTO dto) {
 		Optional<Role> roleOpt = repository.findById(id);
 		
 		if(!roleOpt.isPresent()) {
@@ -86,9 +87,9 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Override
-	public void deleteRole(long id) {
+	public void deleteRole(UUID roleId) {
 		//check db có không
-		Optional <Role> roleOpt = repository.findById(id);
+		Optional <Role> roleOpt = repository.findById(roleId);
 		
 		//kiểm tra
 		if(!roleOpt.isPresent()) {

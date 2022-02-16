@@ -22,6 +22,7 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @SuperBuilder
 @Entity
 @Table(name = "gira_group_role")

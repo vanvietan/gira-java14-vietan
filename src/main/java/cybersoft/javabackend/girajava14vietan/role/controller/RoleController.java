@@ -1,6 +1,7 @@
 package cybersoft.javabackend.girajava14vietan.role.controller;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -50,7 +51,7 @@ public interface RoleController {
 			})
 	@PutMapping(value="/role/{id}")
 	public ResponseEntity<Object> updateRole(
-			@Parameter(description = "role id") @PathVariable("id") long id,
+			@Parameter(description = "role id") @PathVariable("id") UUID id,
 			@Parameter(description = "role dto") @Valid @RequestBody UpdateRoleDTO dto,
 			BindingResult bindingResult
 			);
@@ -63,6 +64,6 @@ public interface RoleController {
 			)
 	@DeleteMapping(value = "/role/{id}")
 	public ResponseEntity<Object> deleteRole(
-			@Parameter(description = "role id") @PathVariable("id") long id
+			@Parameter(description = "role id") @PathVariable("id") UUID id
 			);
 }

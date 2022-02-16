@@ -2,6 +2,8 @@ package cybersoft.javabackend.girajava14vietan.role.controller;
 
 import javax.validation.Valid;
 
+import java.util.UUID;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,16 +21,19 @@ public interface GroupController {
 	@GetMapping
 	public ResponseEntity<Object> findGroups();
 	
+	@GetMapping("/dto")
+ 	public ResponseEntity<Object> findAllDto();
+	
 	@PostMapping
 	public ResponseEntity<Object> create(@Valid @RequestBody GroupDTO dto, BindingResult result );
 	
 	@PostMapping("/{group-id}/add-user")
 	public ResponseEntity<Object> addUser(
-			@PathVariable ("group-id") long GroupId, 
-			@RequestParam ("user-id")long userId );
+			@PathVariable ("group-id") UUID GroupId, 
+			@RequestParam ("user-id") UUID userId );
 	
 	@PostMapping("/{group-id}/remove-user")
 	public ResponseEntity<Object> removeUser(
-			@PathVariable ("group-id") long GroupId, 
-			@RequestParam ("user-id")long userId );
+			@PathVariable ("group-id") UUID GroupId, 
+			@RequestParam ("user-id") UUID userId );
 }

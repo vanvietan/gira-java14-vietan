@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: cybersoft.javabackend.girajava14vietan.GiraJava14VietanApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in cybersoft.javabackend.girajava14vietan.GiraJava14VietanApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in cybersoft.javabackend.girajava14vietan.GiraJava14VietanApplicationTests

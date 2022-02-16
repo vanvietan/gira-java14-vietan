@@ -1,6 +1,8 @@
 package cybersoft.javabackend.girajava14vietan.role.controller;
 
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cybersoft.javabackend.girajava14vietan.common.ResponseHandler;
 import cybersoft.javabackend.girajava14vietan.role.dto.GroupDTO;
+import cybersoft.javabackend.girajava14vietan.role.dto.GroupProjection;
 import cybersoft.javabackend.girajava14vietan.role.service.GroupRoleService;
 
 @RestController
@@ -19,6 +22,12 @@ public class GroupControllerImpl implements GroupController{
 	
 	@Autowired
 	private GroupRoleService service;
+	
+	@Override
+ 	public ResponseEntity<Object> findAllDto() {
+ 		Set<GroupProjection> groups = service.findAllDto();
+ 		return ResponseHandler.getResponse(groups, HttpStatus.OK);
+ 	}
 	
 	@Override
 	public ResponseEntity<Object> findGroups() {
@@ -39,14 +48,14 @@ public class GroupControllerImpl implements GroupController{
 	}
 
 	@Override
-	public ResponseEntity<Object> addUser(long GroupId, long userId) {
+	public ResponseEntity<Object> addUser(UUID GroupId, UUID userId) {
 		service.addUser(GroupId, userId);
 		
 		return ResponseHandler.getResponse(HttpStatus.OK);
 	}
 
 	@Override
-	public ResponseEntity<Object> removeUser(long GroupId, long userId) {
+	public ResponseEntity<Object> removeUser(UUID GroupId, UUID userId) {
 		service.removeUser(GroupId, userId);
 		
 		return ResponseHandler.getResponse(HttpStatus.OK);

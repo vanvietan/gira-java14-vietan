@@ -2,11 +2,12 @@ package cybersoft.javabackend.girajava14vietan.common.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -32,7 +33,7 @@ public class BaseEntity  implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	protected Long id;
+	protected UUID id;
 	
 	@Version
 	protected int version; 

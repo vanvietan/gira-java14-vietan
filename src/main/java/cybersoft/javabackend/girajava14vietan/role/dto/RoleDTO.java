@@ -1,5 +1,7 @@
 package cybersoft.javabackend.girajava14vietan.role.dto;
 
+import java.util.UUID;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -18,7 +20,7 @@ import lombok.Setter;
 @Builder
 public class RoleDTO {
 	
-	private long id;
+	private UUID id;
 	
 	@NotBlank(message="{role.name.not-blank}")
 	@UniqueRoleName(message="This role name can not be used. Choose the another role name")
